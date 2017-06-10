@@ -1,0 +1,26 @@
+a {
+  text-underline: wave;
+  color: blue;
+}
+
+my-date-picker {
+  padding: 5px 0px 5px 0px ;
+}
+button {
+  font-size: 12px;
+}
+
+
+.wrap {
+  width: 100%;
+}
+
+.fleft {
+  float:left;
+  width: 80%;
+}
+
+.fright {
+  float: right;
+  width: 20%;
+}

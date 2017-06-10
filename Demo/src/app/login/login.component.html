@@ -1,0 +1,97 @@
+<div class="container">
+  <table align="center">
+
+    <tr>
+      <td>
+        <div class="form-group">
+          Username :
+        </div>
+      </td>
+      <td>
+      <input class="form-control"
+               type ="text"
+               placeholder="Enter username."
+               name="Email"
+               [(ngModel)]="userModel.userName"/>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <div class="form-group">
+          Password :
+        </div>
+      </td>
+      <td>
+        <input class="form-control"
+               type ="password"
+               placeholder="Enter Password."
+               name="Password"
+               [(ngModel)]="userModel.password">
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Time:
+      </td>
+      <td>
+        <input placeholder="click here" [ngModel]="momentValue | date: 'short'" [(dateTimePicker)]="momentValue" readonly />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Date:
+      </td>
+      <td>
+        <my-date-picker
+          name="mydate"
+          [options]="myDPPicker"
+          [(ngModel)]="model" required
+        ></my-date-picker>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Color:
+      </td>
+      <td>
+        <input [(colorPicker)]="color"
+               [style.background]="color"
+               [cpPosition]="bottom">
+               <!--[cpToggle]="true"/>-->
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Upload File:
+      </td>
+      <td>
+        <input type="file" name="photo" ng2FileSelect [uploader]="uploader"/>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align: center">
+        <div>
+          <button style="{align-content: center}" ngClass="button" (click)="handleLogin()">LOGIN</button>
+          <button style="..." ngClass="buttom" (click)="handleCancel()">Cancel</button>
+          <button type="button" class="btn btn-success btn-5" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+            Upload with ng-2 file uploader
+          </button>
+
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align: center">
+        <div>
+          Don't have an account?
+          <a (click)="gotoSignup()"> Signup </a>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>

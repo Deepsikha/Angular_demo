@@ -1,3 +1,25 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container">
+  <button (click)="MenuBar()" class="hamburger">
+    <span>toggle menu</span>
+  </button>
+  <div>
+    <div class="left">
+      <h1>
+        {{title}}
+      </h1>
+    </div>
+    <div class="right">
+        <h2 class="app-heading" style="">Demo App to Demonstrate API Call</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-5">
+      <app-menu [@slideInOut]="state"> </app-menu>
+      <!--<a routerLink="/login" routerLinkActive="active"></a>-->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+</div>
+

@@ -1,0 +1,93 @@
+<div class="container">
+
+  <table align="center">
+    <tr>
+      <td>
+        <div class="form-group">
+          FirstName :
+        </div>
+      </td>
+      <td>
+        <input class="form-control"
+               type ="text"
+               placeholder="Enter Firstname."
+               name="Password"
+               [(ngModel)]="userModel.firstName">
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <div class="form-group">
+          LastName :
+        </div>
+      </td>
+      <td>
+        <input class="form-control"
+               type ="text"
+               placeholder="Enter Lastname."
+               name="Password"
+               [(ngModel)]="userModel.lastName">
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <div class="form-group">
+          UserName :
+        </div>
+      </td>
+      <td>
+        <input class="form-control"
+               type ="text"
+               placeholder="Enter username."
+               name="Email"
+               [(ngModel)]="userModel.userName">
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <div class="form-group">
+          Email_id :
+        </div>
+      </td>
+      <td>
+        <input class="form-control"
+               type ="text"
+               placeholder="Enter email."
+               name="Password"
+               [(ngModel)]="userModel.email_id">
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <div class="form-group">
+          Password :
+        </div>
+      </td>
+      <td>
+        <input class="form-control"
+               type ="password"
+               placeholder="Enter Password."
+               name="Password"
+               [(ngModel)]="userModel.password">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        BirthDate:
+      </td>
+      <td>
+        <my-date-picker name="mydate" [options]="myDPPicker" [(ngModel)]="model" required></my-date-picker>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align: center">
+        <div>
+          <button style="font-size: larger;background-color: lightskyblue" ngClass="button" (click)="handlesignUp()">SignUp</button>
+        </div>
+      </td>
+  </table>
+</div>
