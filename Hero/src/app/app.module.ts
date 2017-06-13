@@ -3,6 +3,7 @@ import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms';
 import { HttpModule} from '@angular/http';
 
+import 'node_modules/hammerjs/hammer.js';
 import { AppRoutingModule }     from './app-routing.module';
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -14,6 +15,7 @@ import { HeroDetailComponent }  from './hero-detail.component';
 import { HeroesComponent }      from './heroes.component';
 import { HeroService }          from './hero.service';
 import { HeroSearchComponent } from './hero-search.component';
+import { LoaderService } from './loader.service';
 
 @NgModule({
   imports: [
@@ -21,7 +23,7 @@ import { HeroSearchComponent } from './hero-search.component';
     FormsModule,
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
-    AppRoutingModule
+    AppRoutingModule,
   ],
   declarations: [
     AppComponent,
@@ -30,7 +32,7 @@ import { HeroSearchComponent } from './hero-search.component';
     HeroesComponent,
     HeroSearchComponent
   ],
-  providers: [ HeroService ],
+  providers: [ HeroService, LoaderService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

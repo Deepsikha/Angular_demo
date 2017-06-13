@@ -1,12 +1,13 @@
 import { Component, OnInit, transition, trigger, style, state, animate } from '@angular/core';
 import { HttpServiceService } from '../service/http-service.service';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { UserModel } from '../model/UserModel';
 import { PushNotificationsService } from 'angular2-notifications';
 import { IMyDpOptions, IMyOptions } from '../../../node_modules/mydatepicker/src/my-date-picker/interfaces/my-options.interface';
 import { ColorPickerDirective, ColorPickerService, Rgba} from 'angular2-color-picker';
 import { DateTimePickerDirective } from 'ng2-date-time-picker';
 import { FileUploader} from 'ng2-file-upload/ng2-file-upload';
+import { GoogleAnalyticsEventsService } from '../google-analytics-events.service';
 
 export class Cmyk {
   constructor(public c: number, public m: number, public y: number, public k: number) { }
@@ -66,7 +67,8 @@ export class LoginComponent implements OnInit {
     private notify: PushNotificationsService,
     private router: Router,
     private httpService: HttpServiceService,
-    private cpService: ColorPickerService
+    private cpService: ColorPickerService,
+    public googleAnalyticsEventsService: GoogleAnalyticsEventsService
   ) {
     notify.requestPermission();
     this.arrayColors['color'] = '#2883e9';
@@ -74,8 +76,14 @@ export class LoginComponent implements OnInit {
     this.arrayColors['color3'] = 'rgb(255,245,0)';
     this.arrayColors['color4'] = 'rgb(236,64,64)';
     this.arrayColors['color5'] = 'rgba(45,208,45,1)';
-  }
 
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        ga('set', 'page', event.urlAfterRedirects);
+        ga('send', 'pageview');
+      }
+    });
+  }
 
   ngOnInit() {
     this.uploader.onAfterAddingFile = (file) => {file.withCredentials = false; };
@@ -94,6 +102,7 @@ export class LoginComponent implements OnInit {
   }
 
   public handleLogin() {
+    this.googleAnalyticsEventsService.emitEvent("testCategory", "testAction", "testLabel", 10);
     console.log(`Press login`);
     this.httpService.login(this.userModel).subscribe(
       res => {
@@ -112,6 +121,7 @@ export class LoginComponent implements OnInit {
   }
 
   public handleCancel() {
+
     this.router.navigate(['menu']);
   }
 

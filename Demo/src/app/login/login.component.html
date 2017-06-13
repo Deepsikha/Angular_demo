@@ -33,7 +33,7 @@
 
     <tr>
       <td>
-        Time:
+        Time :
       </td>
       <td>
         <input placeholder="click here" [ngModel]="momentValue | date: 'short'" [(dateTimePicker)]="momentValue" readonly />
@@ -42,7 +42,7 @@
 
     <tr>
       <td>
-        Date:
+        Date :
       </td>
       <td>
         <my-date-picker
@@ -55,19 +55,18 @@
 
     <tr>
       <td>
-        Color:
+        Color :
       </td>
       <td>
         <input [(colorPicker)]="color"
                [style.background]="color"
                [cpPosition]="bottom">
-               <!--[cpToggle]="true"/>-->
       </td>
     </tr>
 
     <tr>
       <td>
-        Upload File:
+        Upload File :
       </td>
       <td>
         <input type="file" name="photo" ng2FileSelect [uploader]="uploader"/>

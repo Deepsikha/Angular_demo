@@ -1,5 +1,5 @@
 import { Component, style, trigger, state, transition, animate } from '@angular/core';
-
+import { Router, NavigationEnd } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -19,8 +19,9 @@ import { Component, style, trigger, state, transition, animate } from '@angular/
 })
 export class AppComponent {
   title = 'app works!';
-
+  router1: Router;
   state = 'out';
+
   MenuBar() {
     this.state = this.state === 'out' ? ' in' : 'out';
   }
