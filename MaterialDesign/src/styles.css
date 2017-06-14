@@ -1,0 +1,33 @@
+@import '~https://fonts.googleapis.com/icon?family=Material+Icons';
+@import '~https://fonts.googleapis.com/icon?family=Roboto';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import '~https://fonts.googleapis.com/icon?family=Material+Icons';
+
+body {
+  font-family: Roboto;
+}
+
+.primary-color {
+  color: #3F51B5!important;
+}
+.accent-color {
+  color: #FF4081!important;
+}
+.background-primary-color {
+  background-color: #3F51B5!important;
+}
+.background-accent-color {
+  background-color: #FF4081!important;
+}
+.white-text {
+  color: #FFF!important;
+}
+
+body {
+  margin: 0px;
+}
+
+.margin-left-right-50 {
+  margin-left: 50px;
+  margin-right: 50px;
+}
