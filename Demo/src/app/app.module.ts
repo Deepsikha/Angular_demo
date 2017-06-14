@@ -21,7 +21,14 @@ import { Ng2SmartTableModule, LocalDataSource } from 'ng2-smart-table';
 import { FileSelectDirective } from 'ng2-file-upload';
 
 import { GoogleAnalyticsEventsService } from "./google-analytics-events.service";
+import { AgmCoreModule } from '@agm/core';
+import { Angular2SocialLoginModule } from 'angular2-social-login';
 
+let pro = {
+  'google': {
+    'clientId':'386401448101-pqbv22pl5mn4l652p456llqs40giagrt.apps.googleusercontent.com'
+  }
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,9 +47,14 @@ import { GoogleAnalyticsEventsService } from "./google-analytics-events.service"
     MyDatePickerModule,
     ColorPickerModule,
     DateTimePickerModule,
-    Ng2SmartTableModule
+    Ng2SmartTableModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyClbkogoW3s9yGc-bYi04KoE7JigAi4sGM'
+    })
   ],
   providers: [ HttpServiceService, GoogleAnalyticsEventsService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
+
+Angular2SocialLoginModule.loadProvidersScripts(pro);

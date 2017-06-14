@@ -89,5 +89,52 @@
           <button style="font-size: larger;background-color: lightskyblue" ngClass="button" (click)="handlesignUp()">SignUp</button>
         </div>
       </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <button (click)="signIn('google')">Google SIGNUP</button>
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <div *ngIf="user">
+          <table>
+            <tr>
+              <td>Name:</td>
+              <td>{{user.name}}</td>
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td>{{user.email}}</td>
+            </tr>
+            <tr>
+              <td>UID</td>
+              <td>{{user.uid}}</td>
+            </tr>
+            <tr>
+              <td>Provider</td>
+              <td>{{user.provider}}</td>
+            </tr>
+            <tr>
+              <td>Image</td>
+              <td>{{user.image}}</td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <button (click)="logout()" style="text-align: center">Logout</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+
   </table>
+  <agm-map [latitude]="lat" [longitude]="long" [styles]="maptypestyle" [fullscreenControl]="false">
+    <agm-marker [latitude]="lat" [longitude]="long"></agm-marker>
+  </agm-map>
+
 </div>
+

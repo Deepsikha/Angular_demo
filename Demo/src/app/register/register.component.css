@@ -1,3 +1,11 @@
 table {
   text-align: left;
 }
+agm-map {
+  height: 300px;
+  width: inherit;
+}
+
+button {
+  text-align: center;
+}
